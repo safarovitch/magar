@@ -183,7 +183,10 @@
 		}
 		if (ownPlayer) {
 			applyPlayerDiameter(ownPlayer.diameter);
-			player.score += ownPlayer.score - totalPlayerScore();
+			const localScore = totalPlayerScore();
+			if (ownPlayer.score > localScore) {
+				player.score += ownPlayer.score - localScore;
+			}
 			if (initial) {
 				player.x = ownPlayer.x;
 				player.y = ownPlayer.y;
